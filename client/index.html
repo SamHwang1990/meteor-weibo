@@ -1,46 +1,13 @@
 <template name="index">
-    <div class="hero-unit">
-        <h1>欢迎来到 weibo</h1>
-        <p>weibo 是一个基于Meteor 的微博系统</p>
-        <p>
-            <a class="btn btn-primary btn-large" href="/login">登录</a>
-            <a class="btn btn-large" href="/reg">立即注册</a>
-        </p>
-    </div>
-    <div class="row">
-        <div class="span4">
-            <h2>Sam 说</h2>
-            <p>Young Wong，我娶定了！要好好疼老婆洋</p>
-        </div>
-        <div class="span4">
-            <h2>春光乍泄</h2>
-            <p>
-                你以目光感受　浪漫宁静宇宙<br />
-                总不及两手　轻轻满身漫游<br />
-                再见日光之后　欲望融掉以后<br />
-                那表情会否　同样溫柔<br />
-                意乱情迷极易流逝　难耐这夜春光浪费<br />
-                难道你可遮掩着身体　分享一切<br />
-                愈是期待愈是美丽<br />
-                来让这夜春光代替<br />
-                难道要等青春全枯萎　至得到一切
-            </p>
-        </div>
-        <div class="span4">
-            <h2>四季歌</h2>
-            <p>
-                红日微风催幼苗<br />
-                云外归鸟知春晓<br />
-                哪个爱做梦，一觉醒来<br />
-                床畔蝴蝶飞走了<br />
-                船在桥底轻快摇<br />
-                桥上风雨知多少<br />
-                半唱半和一首歌谣<br />
-                湖上荷花初开了<br />
-                四季似歌有冷暖<br />
-                来又复去争分秒<br />
-                又似风车转到停不了<br />
-            </p>
-        </div>
-    </div>
+    {{#if currentUser }}
+        <form class="well form-inline center" style="text-align: center;">
+            <input type="text" class="span8" id="post" />
+            <button id="submit" class="btn btn-success"><i class="icon-comment icon-white"></i>发表 </button>
+        </form>
+    {{/if}}
+    {{#each posts}}
+        <h2>{{user.username}} 说</h2>
+        <p class="muted">{{time}}</p>
+        <p>{{post}}</p>
+    {{/each}}
 </template>
